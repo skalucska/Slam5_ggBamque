@@ -10,12 +10,7 @@ public class GGBanque {
   private Scanner scanner;
   private boolean fin = false;
 
-  public static void main(final String[] args) {
-    final GGBanque laBanque = new GGBanque();
-    laBanque.run();
-  }
-
-  private void run() {
+  void run() {
     scanner = new Scanner(System.in);
     while (!fin) {
       System.out.print(
@@ -27,7 +22,7 @@ public class GGBanque {
   }
 
   private void traiterCommande(final int cmd) {
-    if (cmd != 0) {
+    if (cmd == 0) {
       quitter();
     } else if (cmd == 1) {
       creerNouveauCompte();
