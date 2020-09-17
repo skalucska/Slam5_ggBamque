@@ -42,8 +42,14 @@ public class BanqueClient {
     }
 
     private void creerNouveauCompte() {
-        numCompteSelectionne = banque.creerCompte();
+        numCompteSelectionne = banque.creerCompte(demanderSiEtranger());
         System.out.println("Le numéro de votre nouveau compte est : " + numCompteSelectionne);
+    }
+
+    private boolean demanderSiEtranger() {
+        System.out.print("Provenance (1 = étranger - 2 = non-étranger) : ");
+        int entree = scanner.nextInt();
+        return (entree == 1);
     }
 
     private void changerCompte() {
