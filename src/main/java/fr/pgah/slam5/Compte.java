@@ -1,6 +1,6 @@
 package fr.pgah.slam5;
 
-public class Compte {
+public abstract class Compte {
     protected int numero;
     protected int solde;
     protected boolean estEtranger;
@@ -26,15 +26,12 @@ public class Compte {
         solde += montant;
     }
 
-    public void appliquerInterets() {
-    }
+    public abstract void appliquerInterets();
 
     public String toString() {
         return "";
     }
 
-    public boolean offreGarantieSuffisantePour(int montant) {
-        return false;
-    }
+    public abstract boolean offreGarantieSuffisantePour(int montant);
 
 }
