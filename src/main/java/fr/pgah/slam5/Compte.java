@@ -1,17 +1,13 @@
 package fr.pgah.slam5;
 
 public class Compte {
-    private int numero;
-    private int solde;
-    private boolean estEtranger;
-    private double taux = 0.01;
-    private int type;
+    protected int numero;
+    protected int solde;
+    protected boolean estEtranger;
 
-    public Compte(int numero, boolean estEtranger, int type) {
+    public Compte(int numero, boolean estEtranger) {
         this.numero = numero;
         this.estEtranger = estEtranger;
-        this.type = type;
-
     }
 
     public int getSolde() {
@@ -26,41 +22,19 @@ public class Compte {
         return estEtranger;
     }
 
-    public void appliquerInterets() {
-        if (type == 1) {
-            solde = (int) (solde * (1 + taux));
-        }
-    }
-
     public void crediter(int montant) {
         solde += montant;
     }
 
+    public void appliquerInterets() {
+    }
+
     public String toString() {
-        String provenance;
-        String typeCompte;
-        if (estEtranger) {
-            provenance = "étranger";
-        } else {
-            provenance = "non-étranger";
-        }
-        if (type == 1) {
-            typeCompte = "Epargne";
-        } else {
-            typeCompte = "Courant";
-        }
-
-        return "\n\tCompte " + typeCompte + " - " + numero + ": solde = " + solde + "(" + provenance + ")";
-
+        return "";
     }
 
     public boolean offreGarantieSuffisantePour(int montant) {
-        if (type == 1) {
-            return solde >= montant / 2;
-        } else {
-            return solde >= 2 * montant / 3;
-        }
-
+        return false;
     }
 
 }

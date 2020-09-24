@@ -13,7 +13,12 @@ public class Banque {
 
     public int creerCompte(boolean estEtranger, int type) {
         int numCompte = numDernierCompte++;
-        Compte nouveau = new Compte(numCompte, estEtranger, type);
+        Compte nouveau;
+        if (type == 1) {
+            nouveau = new CompteEpargne(numCompte, estEtranger);
+        } else {
+            nouveau = new CompteCourant(numCompte, estEtranger);
+        }
         comptes.put(numCompte, nouveau);
         return numCompte;
     }
